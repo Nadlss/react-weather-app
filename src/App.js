@@ -1,25 +1,63 @@
-import logo from './logo.svg';
 import './App.css';
+import SearchBar from "./SearchBar";
+import CurrentWeather from "./CurrentWeather";
+import Forecast from "./Forecast";
+import LocationAndDate from "./LocationAndDate";
 
-function App() {
+export default function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
+    <div>
+      <div className="App">
+        <div className="container wholeBody">
+          <div className="headerPiece">
+            <SearchBar />
+          </div>
+          <div className="cityAndDate">
+            <LocationAndDate />
+          </div>
+          <div className="mainWeather">
+            <CurrentWeather />
+          </div>
+          <p />
+          <div className="forecastPiece">Forecast:</div>
+          <div className="forecastWeather">
+            <div className="row">
+              <div className="col" id="three-hours-fc">
+                <Forecast hours="3:00" maxTempValue={20} minTempValue={17} />
+              </div>
+              <div className="col" id="six-hours-fc">
+                <Forecast hours="6:00" maxTempValue={7} minTempValue={2} />
+              </div>
+              <div className="col" id="nine-hours-fc">
+                <Forecast hours="9:00" maxTempValue={15} minTempValue={12} />
+              </div>
+              <div className="col" id="twelve-hours-fc">
+                <Forecast hours="12:00" maxTempValue={12} minTempValue={7} />
+              </div>
+              <div className="col" id="fifteen-hours-fc">
+                <Forecast hours="15:00" maxTempValue={24} minTempValue={20} />
+              </div>
+            </div>
+            <div className="lastUpdate"> Last updated: 08:00 </div>
+          </div>
+        </div>
+      </div>
+      <p className="credits">
+        Open-source code by{" "}
+        <a href="https://github.com/Nadlss" className="appAuthor">
+          Susana Simões
         </a>
-      </header>
+      </p>
+      <div className="iconCredits">
+        Icons made by{" "}
+        <a href="https://www.freepik.com" title="Freepik">
+          Freepik
+        </a>{" "}
+        from{" "}
+        <a href="https://www.flaticon.com/" title="Flaticon">
+          www.flaticon.com
+        </a>
+      </div>
     </div>
   );
 }
-
-export default App;
