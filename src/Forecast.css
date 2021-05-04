@@ -1,0 +1,17 @@
+.forecastWeather {
+  text-align: center;
+}
+
+.forecastImg {
+  width: 35px;
+}
+
+.forecastMaxTemp,
+.forecastMinTemp {
+  text-align: center;
+}
+
+.maxLogo,
+.minLogo {
+  width: 15px;
+}
