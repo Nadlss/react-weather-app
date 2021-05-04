@@ -43,7 +43,7 @@ export default function App() {
         </div>
       </div>
       <p className="credits">
-        Open-source code by{" "}
+        <a href="https://github.com/Nadlss/react-weather-app" className="code">Open-source code </a>by{" "}
         <a href="https://github.com/Nadlss" className="appAuthor">
           Susana Simões
         </a>
