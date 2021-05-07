@@ -1,8 +1,6 @@
 import './App.css';
-import SearchBar from "./SearchBar";
-import CurrentWeather from "./CurrentWeather";
+import Weather from "./Weather";
 import Forecast from "./Forecast";
-import LocationAndDate from "./LocationAndDate";
 
 export default function App() {
   return (
@@ -10,31 +8,25 @@ export default function App() {
       <div className="App">
         <div className="container wholeBody">
           <div className="headerPiece">
-            <SearchBar />
-          </div>
-          <div className="cityAndDate">
-            <LocationAndDate />
-          </div>
-          <div className="mainWeather">
-            <CurrentWeather />
+            <Weather />
           </div>
           <p />
           <div className="forecastPiece">Forecast:</div>
           <div className="forecastWeather">
             <div className="row">
-              <div className="col" id="three-hours-fc">
+              <div className="col three-hours-fc">
                 <Forecast hours="3:00" maxTempValue={20} minTempValue={17} />
               </div>
-              <div className="col" id="six-hours-fc">
+              <div className="col six-hours-fc">
                 <Forecast hours="6:00" maxTempValue={7} minTempValue={2} />
               </div>
-              <div className="col" id="nine-hours-fc">
+              <div className="col nine-hours-fc">
                 <Forecast hours="9:00" maxTempValue={15} minTempValue={12} />
               </div>
-              <div className="col" id="twelve-hours-fc">
+              <div className="col twelve-hours-fc">
                 <Forecast hours="12:00" maxTempValue={12} minTempValue={7} />
               </div>
-              <div className="col" id="fifteen-hours-fc">
+              <div className="col fifteen-hours-fc">
                 <Forecast hours="15:00" maxTempValue={24} minTempValue={20} />
               </div>
             </div>
@@ -42,11 +34,11 @@ export default function App() {
           </div>
         </div>
       </div>
-      <p className="credits">
-        <a href="https://github.com/Nadlss/react-weather-app" className="code">Open-source code </a>by{" "}
+      <p className="credits">This project was coded by {" "}
         <a href="https://github.com/Nadlss" className="appAuthor">
           Susana Simões
-        </a>
+        </a> and is 
+        <a href="https://github.com/Nadlss/react-weather-app" className="code"> open-sourced on GitHub</a>
       </p>
       <div className="iconCredits">
         Icons made by{" "}
