@@ -4,10 +4,18 @@ import "./Weather.css";
 
 export default function Weather() {
   const [ready,setReady] = useState(false);
-  const [temperature,setTemperature] = useState(null);
+  const [weatherData,setWeatherData] = useState({});
   function handleResponse(response) {
     console.log(response.data);
-    setTemperature(response.data.main.temp);
+    setWeatherData({
+      temperature: response.data.main.temp,
+      maxTemp: response.data.main.temp_max,
+      minTemp:response.data.main.temp_min,
+      wind: response.data.wind.speed,
+      humidity: response.data.main.humidity,
+      city: response.data.name,
+      country: response.data.sys.country,
+      description: response.data.weather[0].main});
     setReady(true);
   }
   
@@ -48,11 +56,11 @@ export default function Weather() {
     </div>
     <div className="introCityDate">
       {" "}
-      <span className="cityName">London</span>{" "}
-      <span className="countryID">(PT)</span> -{" "}
+      <span className="cityName">{weatherData.city}</span>{" "}
+      <span className="countryID">({weatherData.country})</span> -{" "}
       <span className="dateInfo">
         <span className="monthID">
-          April
+          April, 
           <span className="dayID">{4}</span>,{" "}
           <span className="yearID">{2021}</span>
         </span>
@@ -64,14 +72,14 @@ export default function Weather() {
           <img
             src="/images/023-sun.png"
             className="currentWeatherImg"
-            alt="Current Weather"
+            alt={weatherData.description}
           />
           <figcaption className="currentWeatcherCaption">
-            "Sunny"
+            {weatherData.description}
           </figcaption>
         </div>
         <div className="col-2 currentTemperatureDegrees">
-          <h1 className="currentTemperature">{temperature}</h1>
+          <h1 className="currentTemperature">{Math.round(weatherData.temperature)}</h1>
           <input
             type="image"
             className="btn-celsius temperatureButton"
@@ -93,14 +101,14 @@ export default function Weather() {
             alt="Maximum Temperature"
             className="MaxTempImg"
           />
-          <span className="maxTempValue">{26}º</span>
+          <span className="maxTempValue">{Math.round(weatherData.maxTemp)}º</span>
           <p />
           <img
             src="/images/006-low-temperature.png"
             alt="Minimum Temperature"
             className="MinTempImg"
           />
-          <span className="minTempValue">{19}º</span>
+          <span className="minTempValue">{Math.round(weatherData.minTemp)}º</span>
         </div>
         <div className="col-3 humidityAndWind">
           <img
@@ -108,10 +116,10 @@ export default function Weather() {
             alt="Humidity"
             className="humidityImg"
           />
-          <span>{17}%</span>
+          <span>{weatherData.humidity}%</span>
           <p />
           <img src="/images/035-blowing.png" alt="Wind" className="windImg" />
-          <span>{12}Km/H</span>
+          <span>{Math.round(weatherData.wind*3.6)} Km/H</span>
         </div>
       </div>
     </div>
@@ -119,7 +127,7 @@ export default function Weather() {
   );
 } else {
   const apiKey = "655cc338645c52514e1df31b37348c78";
-  let city = "London"
+  let city = "New Mexico"
   let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
   axios.get(apiUrl).then(handleResponse);
 
