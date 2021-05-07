@@ -1,0 +1,111 @@
+.search-City-Form {
+  width: 250px;
+  padding: 5px;
+  text-align: center;
+  font-size: 14px;
+  display: block;
+  margin: 0 auto;
+  margin-bottom: 20px;
+}
+
+.searchBar {
+  width: 250px;
+  height: 25px;
+  border-top: 1px solid transparent;
+  border-right: 1px solid transparent;
+  border-bottom: 1px solid #2193b0;
+  border-left: 1px solid transparent;
+  border-radius: 2px;
+  background: transparent;
+  color: #fff;
+  font-family: "Coda", cursive;
+}
+
+::placeholder {
+  color: #82b8c5;
+}
+
+.searchButtons {
+  margin-top: 5px;
+}
+
+.searchButton,
+.locationButton {
+  margin-right: 2px;
+  background: #2193b0;
+  background: -webkit-linear-gradient(to right, #6dd5ed, #2193b0);
+  background: linear-gradient(to right, #6dd5ed, #2193b0);
+  color: #fff;
+  border: 2px solid #eee;
+  border-radius: 35px;
+}
+
+.introCityDate {
+  text-align: center;
+  margin-bottom: 20px;
+  font-size: 16px;
+}
+
+.cityName {
+  font-weight: 600;
+}
+
+.countryID {
+  font-weight: 600;
+}
+
+.dateInfo {
+  font-weight: 600;
+}
+
+.currentImgColumn {
+  width: 100px;
+}
+.currentWeatherImg {
+  width: 80px;
+  margin: 5px 0 0 0;
+}
+
+.currentWeatherCaption {
+  text-align: left;
+  width: 120px;
+  font-size: 14px;
+}
+
+.currentTemperatureDegrees {
+  text-align: center;
+  width: 70px;
+}
+
+.currentTemperature {
+  font-size: 32px;
+}
+
+.temperatureButton {
+  width: 35px;
+}
+
+.btn-celsius,
+.btn-fahrenheit {
+  margin: 0px;
+}
+
+.MaxTempImg,
+.MinTempImg,
+.humidityImg,
+.windImg {
+  width: 30px;
+  margin-right: 5px;
+}
+
+.maxAndMinTemp {
+  margin-top: 20px;
+  font-size: 16px;
+  width: 85px;
+}
+
+.humidityAndWind {
+  margin-top: 20px;
+  font-size: 16px;
+  width: 120px;
+}
