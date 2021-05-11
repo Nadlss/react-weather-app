@@ -102,11 +102,12 @@
   margin-top: 20px;
   font-size: 16px;
   width: 85px;
+  text-align: left;
 }
 
 .humidityAndWind {
   margin-top: 20px;
   font-size: 16px;
   width: 120px;
-  align
+  text-align: left;
 }

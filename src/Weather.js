@@ -3,23 +3,24 @@ import axios from "axios";
 import "./Weather.css";
 
 export default function Weather() {
-  const [ready,setReady] = useState(false);
-  const [weatherData,setWeatherData] = useState({});
+  const [weatherData,setWeatherData] = useState({ready:false});
   function handleResponse(response) {
     console.log(response.data);
     setWeatherData({
+      ready: true,
       temperature: response.data.main.temp,
       maxTemp: response.data.main.temp_max,
       minTemp:response.data.main.temp_min,
       wind: response.data.wind.speed,
       humidity: response.data.main.humidity,
+      iconUrl: "https://ssl.gstatic.com/onebox/weather/64/partly_cloudy.png",
       city: response.data.name,
       country: response.data.sys.country,
-      description: response.data.weather[0].main});
-    setReady(true);
+      description: response.data.weather[0].description});
+
   }
   
-  if (ready) {
+  if (weatherData.ready) {
     return (
     <div className="searchWeather">
       <div className="row searchForm">
@@ -70,7 +71,7 @@ export default function Weather() {
       <div className="row">
         <div className="col-4 currentImgColumn">
           <img
-            src="/images/023-sun.png"
+            src={weatherData.iconUrl}
             className="currentWeatherImg"
             alt={weatherData.description}
           />
@@ -127,7 +128,7 @@ export default function Weather() {
   );
 } else {
   const apiKey = "655cc338645c52514e1df31b37348c78";
-  let city = "New Mexico"
+  let city = "Porto"
   let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
   axios.get(apiUrl).then(handleResponse);
 
