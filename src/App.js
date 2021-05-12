@@ -8,7 +8,7 @@ export default function App() {
       <div className="App">
         <div className="container wholeBody">
           <div className="headerPiece">
-            <Weather />
+            <Weather defaultCity="Lisbon"/>
           </div>
           <p />
           <div className="forecastPiece">Forecast:</div>
@@ -30,7 +30,6 @@ export default function App() {
                 <Forecast hours="15:00" maxTempValue={24} minTempValue={20} />
               </div>
             </div>
-            <div className="lastUpdate"> Last updated: 08:00 </div>
           </div>
         </div>
       </div>

@@ -1,8 +1,9 @@
 import React, { useState } from "react";
+import FormattedDate from "./FormattedDate"
 import axios from "axios";
 import "./Weather.css";
 
-export default function Weather() {
+export default function Weather(props) {
   const [weatherData,setWeatherData] = useState({ready:false});
   function handleResponse(response) {
     console.log(response.data);
@@ -16,6 +17,7 @@ export default function Weather() {
       iconUrl: "https://ssl.gstatic.com/onebox/weather/64/partly_cloudy.png",
       city: response.data.name,
       country: response.data.sys.country,
+      date: new Date(response.data.dt * 1000),
       description: response.data.weather[0].description});
 
   }
@@ -58,14 +60,8 @@ export default function Weather() {
     <div className="introCityDate">
       {" "}
       <span className="cityName">{weatherData.city}</span>{" "}
-      <span className="countryID">({weatherData.country})</span> -{" "}
-      <span className="dateInfo">
-        <span className="monthID">
-          April, 
-          <span className="dayID">{4}</span>,{" "}
-          <span className="yearID">{2021}</span>
-        </span>
-      </span>
+      <span className="countryID">({weatherData.country})</span>
+      <FormattedDate  date={weatherData.date} />
     </div>
     <div className="currentWeatherInfo">
       <div className="row">
@@ -75,7 +71,7 @@ export default function Weather() {
             className="currentWeatherImg"
             alt={weatherData.description}
           />
-          <figcaption className="currentWeatcherCaption">
+          <figcaption className="currentWeatcherCaption text-capitalize">
             {weatherData.description}
           </figcaption>
         </div>
@@ -128,8 +124,7 @@ export default function Weather() {
   );
 } else {
   const apiKey = "655cc338645c52514e1df31b37348c78";
-  let city = "Porto"
-  let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
+  let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${props.defaultCity}&appid=${apiKey}&units=metric`;
   axios.get(apiUrl).then(handleResponse);
 
   return "Loading...";
