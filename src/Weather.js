@@ -14,7 +14,7 @@ export default function Weather(props) {
       minTemp:response.data.main.temp_min,
       wind: response.data.wind.speed,
       humidity: response.data.main.humidity,
-      iconUrl: `https://mystifying-poincare-0681d1.netlify.app/public/images/${response.data.weather[0].icon}@2x.png`,
+      iconUrl: require(src=`https://mystifying-poincare-0681d1.netlify.app/${response.data.weather[0].icon}@2x.png`),
       city: response.data.name,
       country: response.data.sys.country,
       date: new Date(response.data.dt * 1000),
