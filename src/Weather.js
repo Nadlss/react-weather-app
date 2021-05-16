@@ -14,7 +14,7 @@ export default function Weather(props) {
       minTemp:response.data.main.temp_min,
       wind: response.data.wind.speed,
       humidity: response.data.main.humidity,
-      iconUrl: requiure(`${response.data.weather[0].icon}@2x.png`),
+      icon: response.data.weather[0].icon,
       city: response.data.name,
       country: response.data.sys.country,
       date: new Date(response.data.dt * 1000),
