@@ -1,5 +1,6 @@
 import React from "react";
 import FormattedDate from "./FormattedDate";
+import UnitsConversion from "./UnitsConversion";
 import WeatherIcon from "./WeatherIcon";
 
 
@@ -23,21 +24,7 @@ export default function WeatherInfo(props) {
           </figcaption>
         </div>
         <div className="col-2 currentTemperatureDegrees">
-          <h1 className="currentTemperature">{Math.round(props.data.temperature)}</h1>
-          <input
-            type="image"
-            className="btn-celsius temperatureButton"
-            src="/images/038-celsius.png"
-            alt="Celsius"
-            
-          />
-          <input
-            type="image"
-            className="btn-fahrenheit temperatureButton"
-            src="/images/039-fahrenheit.png"
-            alt="Fahrenheit"
-            
-          />
+          <UnitsConversion celsius={props.data.temperature} />
         </div>
         <div className="col-3 maxAndMinTemp">
           <img
