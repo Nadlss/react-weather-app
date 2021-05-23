@@ -1,9 +1,11 @@
 .forecastWeather {
   text-align: center;
+  margin: 0px;
 }
 
-.forecastImg {
-  width: 35px;
+.forecastImg canvas {
+  width: 30px;
+  height: 30px;
 }
 
 .forecastMaxTemp,

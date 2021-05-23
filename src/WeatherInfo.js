@@ -17,7 +17,7 @@ export default function WeatherInfo(props) {
       <div className="row">
         <div className="col-4 currentImgColumn">
           <div className="float-left">
-            <WeatherIcon code={props.data.icon} alt={props.data.description} />
+            <WeatherIcon code={props.data.icon} alt={props.data.description} size={70}/>
           </div>
           <figcaption className="currentWeatcherCaption text-capitalize">
             {props.data.description}
