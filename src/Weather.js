@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import axios from "axios";
 import "./Weather.css";
 import WeatherInfo from "./WeatherInfo";
+import Forecast from "./Forecast";
 
 export default function Weather(props) {
   const [weatherData,setWeatherData] = useState({ready:false});
@@ -9,6 +10,7 @@ export default function Weather(props) {
   function handleResponse(response) {
     setWeatherData({
       ready: true,
+      coordinates: response.data.coord,
       temperature: response.data.main.temp,
       maxTemp: response.data.main.temp_max,
       minTemp:response.data.main.temp_min,
@@ -74,6 +76,15 @@ function search(){
       </div>
     </div>
     <WeatherInfo data={weatherData} />
+    <p />
+          <div className="forecastPiece">Forecast</div>
+          <div className="forecastWeather">
+            <div className="row">
+              <div className="col first-day-fc">
+              </div>
+            </div>
+          </div>
+    <Forecast weekDay="Sat" maxTempValue={20} minTempValue={17} coordinates={weatherData.coordinates} />
     </div>
   );
 } else {

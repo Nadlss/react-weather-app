@@ -1,6 +1,5 @@
 import './App.css';
 import Weather from "./Weather";
-import Forecast from "./Forecast";
 
 export default function App() {
   return (
@@ -9,15 +8,6 @@ export default function App() {
         <div className="container wholeBody">
           <div className="headerPiece">
             <Weather defaultCity="Lisbon"/>
-          </div>
-          <p />
-          <div className="forecastPiece">Forecast:</div>
-          <div className="forecastWeather">
-            <div className="row">
-              <div className="col first-day-fc">
-                <Forecast weekDay="Sat" maxTempValue={20} minTempValue={17} />
-              </div>
-            </div>
           </div>
         </div>
       </div>
