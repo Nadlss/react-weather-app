@@ -84,7 +84,7 @@ function search(){
               </div>
             </div>
           </div>
-    <Forecast weekDay="Sat" maxTempValue={20} minTempValue={17} coordinates={weatherData.coordinates} />
+    <Forecast weekDay="Sat" coordinates={weatherData.coordinates} />
     </div>
   );
 } else {

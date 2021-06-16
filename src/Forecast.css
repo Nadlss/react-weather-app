@@ -6,11 +6,14 @@
 .forecastImg canvas {
   width: 30px;
   height: 30px;
+  display: block;
+  margin: 0 auto;
 }
 
 .forecastMaxTemp,
 .forecastMinTemp {
   text-align: center;
+  font-size: 14px;
 }
 
 .maxLogo,
