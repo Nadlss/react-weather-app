@@ -1,6 +1,5 @@
 import React from "react";
 import FormattedDate from "./FormattedDate";
-import UnitsConversion from "./UnitsConversion";
 import WeatherIcon from "./WeatherIcon";
 
 
@@ -9,22 +8,27 @@ export default function WeatherInfo(props) {
     <div>
       <div className="introCityDate">
       {" "}
-      <span className="cityName">{props.data.city}</span>
-      <span className="countryID">({props.data.country})</span>
-      <FormattedDate  date={props.data.date} />
-    </div>
+        <span className="cityName">{props.data.city}</span>
+        <span className="countryID">({props.data.country})</span>
+        <FormattedDate  date={props.data.date} />
+      </div>
     <div className="currentWeatherInfo">
       <div className="row">
         <div className="col-4 currentImgColumn">
           <div className="float-left">
-            <WeatherIcon code={props.data.icon} alt={props.data.description} size={70}/>
+            <WeatherIcon code={props.data.icon} alt={props.data.description} size={90}/>
           </div>
           <figcaption className="currentWeatcherCaption text-capitalize">
             {props.data.description}
           </figcaption>
         </div>
         <div className="col-2 currentTemperatureDegrees">
-          <UnitsConversion celsius={props.data.temperature} />
+          <h1 className="currentTemperature">{Math.round(props.data.temperature)}</h1>
+          <img
+            className="temperatureUnits"
+            src="/images/038-celsius.png"
+            alt="Celsius"
+          />
         </div>
         <div className="col-3 maxAndMinTemp">
           <img

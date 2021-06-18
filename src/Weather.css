@@ -57,10 +57,6 @@
 .currentImgColumn {
   width: 120px;
 }
-.currentWeatherImg {
-  width: 90px;
-  margin: 5px 0 0 0;
-}
 
 .currentWeatherCaption {
   text-align: left;
@@ -74,16 +70,11 @@
 }
 
 .currentTemperature {
-  font-size: 32px;
+  font-size: 54px;
 }
 
-.temperatureButton {
+.temperatureUnits {
   width: 50px;
-}
-
-.btn-celsius,
-.btn-fahrenheit {
-  margin: 0px;
 }
 
 .MaxTempImg,
