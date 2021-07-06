@@ -63,13 +63,6 @@ function search(){
                 Search
                 <div className="weather-forecast-temperature"></div>
               </button>
-              <button className="locationButton" type="submit" value="location">
-                <span role="img" aria-label="Location flag">
-                  🚩
-                </span>{" "}
-                My Location
-                <div className="weather-forecast-temperature"></div>
-              </button>
             </div>
           </div>
         </form>
